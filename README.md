@@ -31,7 +31,8 @@
 
 ###<span id="适用范围">适用范围</span>1.	聚合收银台目前支持的支付渠道有：
 	**PC端：**
-		*	拉卡拉 PC 快捷支付	*	拉卡拉 PC 网关支付	*	微信公众号（C2B扫码）支付	*	支付宝即时到账	**移动H5端：**   
+		*	拉卡拉 PC 快捷支付	*	拉卡拉 PC 网关支付	*	微信公众号（C2B扫码）支付
+	* 	支付宝扫码	*	支付宝即时到账	**移动H5端：**   
 	*	拉卡拉H5支付	*	微信公众号支付（仅在微信浏览器中展示）2.	不需要自己写样式；3.	不需要自己做移动端适配；4.	如果只有一个支付渠道，可以直接跳转付款页进行支付；5.	可以自定义展示支付渠道以及展示顺序。
 （注：不支持定制收银台页面UI）
 
@@ -39,7 +40,7 @@
 ###<span id="主要流程">主要流程</span>
 1.	在页面上嵌入 Paymax jssdk,见[嵌入jssdk](#嵌入jssdk)；
 2.	在页面触发支付时调用jssdk中的 Paymax.charge(data,event)方法,见[接口说明](#接口说明)。
-![flow](https://raw.githubusercontent.com/paymax/paymax-doc/master/image/flow.png)
+![flow](flow.png)
 
 ###<span id="嵌入jssdk">嵌入jssdk</span>
 ####<span id="参数说明">参数说明</span>
@@ -80,7 +81,8 @@
 	自定义方式4:config=app_Tt639X1Lp0Db240N|lakala_web,app_Tt639X1Lp0Db240N|lakala_web_fast
 
 #####<span id="默认顺序">默认顺序</span>
-######PC网页支付	1.	拉卡拉 PC 快捷支付 	2.	拉卡拉 PC 网关支付	3.	微信公众号（C2B扫码）支付	4.	支付宝即时到账######移动网页支付	1.	拉卡拉 H5 支付 	2.	微信公众号支付 (仅在微信浏览器中展示)
+######PC网页支付	1.	拉卡拉 PC 快捷支付 	2.	拉卡拉 PC 网关支付	3.	微信公众号（C2B扫码）支付
+	4. 	支付宝扫码	5.	支付宝即时到账######移动网页支付	1.	拉卡拉 H5 支付 	2.	微信公众号支付 (仅在微信浏览器中展示)
 
 ######渠道显示顺序示例
 config如下所示
@@ -89,7 +91,7 @@ config如下所示
 config=app_Tt639X1Lp0Db240N|lakala_web_fast,app_Tt639X1Lp0Db240N|alipay_web,app_Tt639X1Lp0Db240N|lakala_web,app_Tt639X1Lp0Db240N|wechat_wap
 ```
 在页面上显示的渠道顺序如下所示：
-![channel_sort](https://raw.githubusercontent.com/paymax/paymax-doc/master/image/channel_sort.png)
+![channel_sort](channel_sort.png)
 
 ###<span id="接口说明">接口说明</span>
 ####<span id="方法定义">Paymax.charge方法定义</span>
@@ -260,6 +262,7 @@ BkBa8OLkU2KzRIrWA4swP5WCSouVwXHFAUM6NlJlgDGbMQYKKvVveE30pXppPcesRLPPlpTctFdCt+nY
 | :------------- | :-------------- |
 | 微信公众号          | wechat_wap      |
 | 微信公众号（C2B扫码）支付 | wechat_csb      |
+| 支付宝扫码 | alipay_csb |
 | 支付宝即时到账        | alipay_web      |
 | 拉卡拉 PC 网关支付    | lakala_web      |
 | 拉卡拉 PC 快捷支付    | lakala\_web_fast |
@@ -277,6 +280,9 @@ open_id：必填，用户在公众号下的唯一标识。
 {"open_id":"obc-jswk25IUGp3q8RPTYu083rmk"}
 ```
 #####微信公众号（C2B扫码）支付
+无
+
+#####支付宝扫码
 无
 
 ##### 支付宝即时到账
